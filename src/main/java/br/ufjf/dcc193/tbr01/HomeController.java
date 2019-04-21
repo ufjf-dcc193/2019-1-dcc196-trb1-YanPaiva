@@ -36,11 +36,14 @@ public class HomeController {
         mv.addObject("funcionarios", funcionarios);
         return mv;
     }
+    @Autowired
+    SedeRepository sedRep;
     @RequestMapping("sedes.html")
     ModelAndView sedes(){
         ModelAndView mv = new ModelAndView();
         mv.setViewName("sedes");
-        //mv.addObject("pessoa",p);
+        List<Sede> sedes = sedRep.findAll();
+        mv.addObject("sedes", sedes);
         return mv;
     }
     @RequestMapping("novoFuncionario.html")
@@ -54,8 +57,20 @@ public class HomeController {
     }
 
     @RequestMapping("novoF.html")
-    String form(){
+    String newMembro(){
         return "novoFuncionario";
     }
-
+    @RequestMapping("novaSede.html")
+    ModelAndView novo(Sede s){
+        ModelAndView mv= new ModelAndView();
+        mv.setViewName("funcionarios");
+        sedRep.save(s);
+        List<Sede> sedes = sedRep.findAll();
+        mv.addObject("sedes", sedes);
+        return mv;
+    }
+    @RequestMapping("novaS.html")
+    String newSede(){
+        return "novaSede";
+    }
 }

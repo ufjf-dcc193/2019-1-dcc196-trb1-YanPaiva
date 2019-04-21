@@ -1,5 +1,4 @@
 <%@page pageEncoding="utf-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix = "c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,14 +14,14 @@
     <script src="main.js"></script>
 </head>
 <body>
-    <h1>tbr01: Sedes</h1>
-    <a href="novaS.html">cadastrar nova sede</a>
-
-    <h1>lista de sedes</h1>
-
-    <c:forEach var="sede" items="${sedes}">
-        <p>${sede.nome}</p>
-    </c:forEach>
-
+    <form action="novaSede.jsp" method="post">
+        Nome <input name="nome"/> <br>
+        Estado <input name="estado"/><br>
+        Cidade <input name="cidade"/><br>
+        Bairro <input name="bairro"/><br>
+        Telefone <input name="telefone" type="number"/><br>
+        link <input name="endWeb"/><br>
+        <input type="submit"/> <br>
+    </form>
 </body>
 </html>
