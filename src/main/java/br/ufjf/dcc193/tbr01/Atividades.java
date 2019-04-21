@@ -14,7 +14,7 @@ import javax.persistence.Id;
 public class Atividades {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
-    private int id;
+    private Integer id;
     private String titulo;
     private String descricao;
     private Date dataInicio;
@@ -25,7 +25,7 @@ public class Atividades {
     private Double horasExecutiva;
 
     public Atividades(){}
-    public int getId() {
+    public Integer getId() {
         return id;
     }
     public Date getDataFim() {
@@ -52,7 +52,7 @@ public class Atividades {
     public String getTitulo() {
         return titulo;
     }
-    public Atividades setId(int id) {
+    public Atividades setId(Integer id) {
         this.id = id;
         return this;
     }

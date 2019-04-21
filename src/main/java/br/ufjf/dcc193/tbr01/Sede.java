@@ -14,7 +14,7 @@ import javax.persistence.Id;
 public class Sede {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
-    private int id;
+    private Integer id;
     private String nome;
     private String estado;
     private String cidade;
@@ -25,7 +25,7 @@ public class Sede {
    // private List<Atividades> atividades;
 
     public Sede(){}
-    public int getId() {
+    public Integer getId() {
         return id;
     }
    /* public List<Atividades> getAtividades() {
@@ -52,7 +52,7 @@ public class Sede {
     public Integer getTelefone() {
         return telefone;
     }
-    public Sede setId(int id) {
+    public Sede setId(Integer id) {
         this.id = id;
         return this;
     }/*

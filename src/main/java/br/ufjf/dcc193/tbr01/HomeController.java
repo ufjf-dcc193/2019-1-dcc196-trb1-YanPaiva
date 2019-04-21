@@ -1,6 +1,8 @@
 package br.ufjf.dcc193.tbr01;
 
-//import org.springframework.beans.factory.annotation.Autowired;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -8,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class HomeController {
-  //  @Autowired
+   
     //PessoaRepository repPessoa;
     @RequestMapping("index.html")
     ModelAndView home(){
@@ -17,26 +19,43 @@ public class HomeController {
         //mv.addObject("pessoa",p);
         return mv;
     }
-    /*
-    @RequestMapping("form.html")
-    String form(){
-        return "form";
+    @RequestMapping("atividades.html")
+    ModelAndView atividades(){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("atividades");
+        //mv.addObject("pessoa",p);
+        return mv;
+    }
+    @Autowired
+    MembrosRepository membRep;
+    @RequestMapping("funcionarios.html")
+    ModelAndView funcionarios(){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("funcionarios");
+        List<Membros> funcionarios = membRep.findAll();
+        mv.addObject("funcionarios", funcionarios);
+        return mv;
+    }
+    @RequestMapping("sedes.html")
+    ModelAndView sedes(){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("sedes");
+        //mv.addObject("pessoa",p);
+        return mv;
+    }
+    @RequestMapping("novoFuncionario.html")
+    ModelAndView novo(Membros m){
+        ModelAndView mv= new ModelAndView();
+        mv.setViewName("funcionarios");
+        membRep.save(m);
+        List<Membros> funcionarios = membRep.findAll();
+        mv.addObject("funcionarios", funcionarios);
+        return mv;
     }
 
-    @RequestMapping("pessoas.html")
-    ModelAndView pessoas(){
-        ModelAndView mv=new ModelAndView();
-        mv.setViewName("pessoa-list");
-        List<Pessoa> pessoas = repPessoa.findAll();       
-        mv.addObject("galera", pessoas);
-        return mv;
+    @RequestMapping("novoF.html")
+    String form(){
+        return "novoFuncionario";
     }
-    @RequestMapping("novo.html")
-    ModelAndView novo(Pessoa p){
-        ModelAndView mv= new ModelAndView();
-        mv.setViewName("novo");
-        repPessoa.save(p);
-        mv.addObject("pessoa", p);
-        return mv;
-    }*/
+
 }

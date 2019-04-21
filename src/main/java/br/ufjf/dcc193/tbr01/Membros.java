@@ -14,7 +14,7 @@ public class Membros {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
 
-    private int id;
+    private Integer id;
     private String nome;
     private String funcao;
     private String email;
@@ -22,7 +22,7 @@ public class Membros {
     private Date dataSaida;
     public Membros() {
     }
-    public int getId() {
+    public Integer getId() {
         return id;
     }
     public Date getDataEntrada() {
@@ -43,7 +43,7 @@ public class Membros {
     /**
      * @param id the id to set
      */
-    public Membros setId(int id) {
+    public Membros setId(Integer id) {
         this.id = id;
         return this;
     }
