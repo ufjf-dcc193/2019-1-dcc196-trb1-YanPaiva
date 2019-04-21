@@ -14,13 +14,12 @@
     <script src="main.js"></script>
 </head>
 <body>
-    <form action="novaSede.html" method="post">
-        Nome <input name="nome"/> <br>
-        Estado <input name="estado"/><br>
-        Cidade <input name="cidade"/><br>
-        Bairro <input name="bairro"/><br>
-        Telefone <input name="telefone" type="number"/><br>
-        link <input name="endWeb"/><br>
+    <form action="novaAtividade.html" method="post">
+        Titulo <input name="titulo"/> <br>
+        Descrição <input name="descricao"/><br>
+        Horas Assistencial <input name="horaAssistencial" type="number" value="0"/><br>
+        Horas Juridica <input name="horaJuridica" type="number" value="0"/><br>
+        Horas Executiva <input name="horaExecutiva" type="number" value="0"/><br>
         <input type="submit"/> <br>
     </form>
 </body>

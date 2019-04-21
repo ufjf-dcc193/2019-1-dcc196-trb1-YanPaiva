@@ -16,6 +16,14 @@
 </head>
 <body>
     <h1>tbr01: home</h1>
-    <p>atividades</p>
+    <a href="novoA.html">cadastrar nova atividade</a>
+
+    <h1>lista de pessoas</h1>
+
+    <c:forEach var="atividade" items="${atividades}">
+        <p>${atividade.titulo}</p>
+    </c:forEach>
+
+    
 </body>
 </html>

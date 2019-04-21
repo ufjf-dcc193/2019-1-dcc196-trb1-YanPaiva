@@ -19,11 +19,14 @@ public class HomeController {
         //mv.addObject("pessoa",p);
         return mv;
     }
+    @Autowired
+    AtividadesRepository atiRep;
     @RequestMapping("atividades.html")
     ModelAndView atividades(){
         ModelAndView mv = new ModelAndView();
         mv.setViewName("atividades");
-        //mv.addObject("pessoa",p);
+        List<Atividades> atividades = atiRep.findAll();
+        mv.addObject("atividades", atividades);
         return mv;
     }
     @Autowired
@@ -47,7 +50,7 @@ public class HomeController {
         return mv;
     }
     @RequestMapping("novoFuncionario.html")
-    ModelAndView novo(Membros m){
+    ModelAndView novoMembro(Membros m){
         ModelAndView mv= new ModelAndView();
         mv.setViewName("funcionarios");
         membRep.save(m);
@@ -61,7 +64,7 @@ public class HomeController {
         return "novoFuncionario";
     }
     @RequestMapping("novaSede.html")
-    ModelAndView novo(Sede s){
+    ModelAndView novaSede(Sede s){
         ModelAndView mv= new ModelAndView();
         mv.setViewName("funcionarios");
         sedRep.save(s);
@@ -72,5 +75,21 @@ public class HomeController {
     @RequestMapping("novaS.html")
     String newSede(){
         return "novaSede";
+    }
+
+
+
+    @RequestMapping("novaAtividade.html")
+    ModelAndView novaAtividade(Atividades a){
+        ModelAndView mv= new ModelAndView();
+        mv.setViewName("atividades");
+        atiRep.save(a);
+        List<Atividades> atividades = atiRep.findAll();
+        mv.addObject("atividades", atividades);
+        return mv;
+    }
+    @RequestMapping("novaA.html")
+    String newAtividade(){
+        return "novaAtividade";
     }
 }
