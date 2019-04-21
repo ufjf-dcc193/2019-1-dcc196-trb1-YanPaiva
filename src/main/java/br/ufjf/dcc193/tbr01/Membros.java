@@ -1,11 +1,19 @@
 package br.ufjf.dcc193.tbr01;
 
 import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+@Entity
 
 /**
  * Membros
  */
 public class Membros {
+    @Id
+    @GeneratedValue(strategy = GenerationType.TABLE)
+
     private int id;
     private String nome;
     private String funcao;
