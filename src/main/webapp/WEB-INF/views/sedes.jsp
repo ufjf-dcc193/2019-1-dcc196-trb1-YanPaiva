@@ -17,7 +17,7 @@
 <body>
     <h1>tbr01: Sedes</h1>
     <a href="novaS.html">cadastrar nova sede</a>
-
+0
     <h1>lista de sedes</h1>
 
     <c:forEach var="sede" items="${sedes}">
