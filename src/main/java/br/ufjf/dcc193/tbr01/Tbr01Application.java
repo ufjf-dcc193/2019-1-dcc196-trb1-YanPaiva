@@ -1,5 +1,6 @@
 package br.ufjf.dcc193.tbr01;
 
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -22,10 +23,11 @@ public class Tbr01Application {
 		sedeRep.save(s1);
 		AtividadesRepository ativRep = ctx.getBean(AtividadesRepository.class);
 		Atividades ati = new Atividades();
-		ati.setTitulo("assda").setIdSede(s1);
+		ati.setTitulo("assda").setIdSede(s1.getId());
 		ativRep.save(ati);
 		System.out.println(ativRep.findAll().toString());
 		System.out.println("funcionou");
+	
 	}
 
 }

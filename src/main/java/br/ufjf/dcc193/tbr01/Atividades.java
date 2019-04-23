@@ -5,7 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 @Entity
 
 
@@ -25,17 +24,16 @@ public class Atividades {
     private Double horasFinanceira;
     private Double horasExecutiva;
     
-    @ManyToOne
-    private Sede idSede;
+    private Integer idSede;
 
     public Atividades(){}
     public Integer getId() {
         return id;
     }
-    public Sede getIdSede() {
+    public Integer getIdSede() {
         return idSede;
     }
-    public Atividades setIdSede(Sede idSede) {
+    public Atividades setIdSede(Integer idSede) {
         this.idSede = idSede;
         return this;
     }
@@ -103,7 +101,7 @@ public class Atividades {
     @Override
     public String toString() {
         return "id da atividade"+this.id+"---- titulo"
-        +this.titulo+"-----chave estrangeira"+this.idSede.getId();
+        +this.titulo+"-----chave estrangeira"+this.idSede;
     }
     
 }

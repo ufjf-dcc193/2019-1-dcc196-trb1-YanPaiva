@@ -16,12 +16,12 @@
 <body>
 
 <form action="novoFuncionario.html" method="post">
-        nome <input name="nome"/>
-        função <input name="funcao"/>
-        e-mail <input name="email"/>
-        Data de entrada <input name="dataEntrada" type="date"/>
-        Data de saida <input name="dataSaida" type="date"/>
-        <input type="submit" value="Cadastrar"/> 
+        nome <input name="nome" value="${membro.getNome()}"/>
+        função <input name="funcao"value="${membro.getFuncao()}"/>
+        e-mail <input name="email"value="${membro.getEmail()}"/>
+        Data de entrada <input name="dataEntrada" type="date" value="${membro.getDataEntrada()}"/>
+        Data de saida <input name="dataSaida" type="date" value="${membro.getDataSaida()}"/>
+        <input type="submit" value="Salvar"/> 
     </form>
 </body>
 </html>

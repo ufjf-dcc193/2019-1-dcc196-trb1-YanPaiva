@@ -1,7 +1,7 @@
 package br.ufjf.dcc193.tbr01;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,10 +21,16 @@ public class HomeController {
     AtividadesRepository atiRep;
 
     @RequestMapping("atividades.html")
-    ModelAndView atividades() {
+    ModelAndView atividades(Integer idSede) {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("atividades");
-        List<Atividades> atividades = atiRep.findAll();
+        List<Atividades> a = atiRep.findAll();
+        ArrayList<Atividades> atividades = new ArrayList<Atividades>();
+        for (Atividades ativ : a) {
+            if(ativ.getIdSede() == idSede){
+                atividades.add(ativ);
+            }
+        }
         mv.addObject("atividades", atividades);
         return mv;
     }
@@ -33,10 +39,16 @@ public class HomeController {
     MembrosRepository membRep;
 
     @RequestMapping("funcionarios.html")
-    ModelAndView funcionarios() {
+    ModelAndView funcionarios(Integer idSede) {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("funcionarios");
-        List<Membros> funcionarios = membRep.findAll();
+        List<Membros> f = membRep.findAll();
+        ArrayList<Membros> funcionarios = new ArrayList<Membros>();
+        for (Membros membros : f) {
+            if(membros.getIdSede() == idSede){
+                funcionarios.add(membros);
+            }
+        }
         mv.addObject("funcionarios", funcionarios);
         return mv;
     }
@@ -57,9 +69,15 @@ public class HomeController {
     ModelAndView novoMembro(Membros m, Integer idSede) {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("funcionarios");
-        m.setIdSede(getSede(idSede));
+        m.setIdSede(idSede);
         membRep.save(m);
-        List<Membros> funcionarios = membRep.findAll();
+        List<Membros> f = membRep.findAll();
+        ArrayList<Membros> funcionarios = new ArrayList<Membros>();
+        for (Membros membros : f) {
+            if(membros.getIdSede() == idSede){
+                funcionarios.add(membros);
+            }
+        }
         mv.addObject("funcionarios", funcionarios);
         return mv;
     }
@@ -72,7 +90,7 @@ public class HomeController {
     @RequestMapping("novaSede.html")
     ModelAndView novaSede(Sede s) {
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("funcionarios");
+        mv.setViewName("sedes");
         sedRep.save(s);
         List<Sede> sedes = sedRep.findAll();
         mv.addObject("sedes", sedes);
@@ -88,9 +106,15 @@ public class HomeController {
     ModelAndView novaAtividade(Atividades a, Integer idSede) {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("atividades");
-        a.setIdSede(getSede(idSede));
+        a.setIdSede(idSede);
         atiRep.save(a);
-        List<Atividades> atividades = atiRep.findAll();
+        List<Atividades> aux = atiRep.findAll();
+        ArrayList<Atividades> atividades = new ArrayList<Atividades>();
+        for (Atividades ativ : aux) {
+            if(ativ.getIdSede() == idSede){
+                atividades.add(ativ);
+            }
+        }
         mv.addObject("atividades", atividades);
         return mv;
     }
@@ -109,8 +133,107 @@ public class HomeController {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("sedes");
         sedRep.deleteById(idSede);
+        List<Atividades> a= atiRep.findAll();
+        List<Membros> m = membRep.findAll();
+        for (Atividades atividades : a) {
+           if(atividades.getIdSede() == idSede){
+               atiRep.deleteById(atividades.getId());
+           }
+        }
+        for (Membros membros : m) {
+            if(membros.getIdSede() == idSede){
+                membRep.deleteById(membros.getId());
+            }
+        }
         List<Sede> sedes = sedRep.findAll();
         mv.addObject("sedes", sedes);
+        return mv;
+    }
+
+    @RequestMapping("informacoesSede.html")
+    ModelAndView salvarEdicaoSede(Sede s,Integer idSede){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("editarSede");
+        Sede aux = sedRep.getOne(idSede);
+        aux.setBairro(s.getBairro())
+            .setCidade(s.getCidade())
+            .setEstado(s.getEstado())
+            .setNome(s.getNome())
+            .setTelefone(s.getTelefone())
+            .setId(idSede);
+        sedRep.save(aux);
+        mv.addObject("sede", getSede(idSede));
+        return mv;
+    }
+
+    @RequestMapping("editarSede.html")
+    ModelAndView editarSede(Integer idSede){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("editarSede");
+        mv.addObject("sede", getSede(idSede));
+        return mv;
+    }
+
+    
+    @RequestMapping("excluirFuncionario.html")
+    ModelAndView excluirFuncionarios(Integer idMembro, Integer idSede) {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("funcionarios");
+        membRep.deleteById(idMembro);
+        List<Membros> f = membRep.findAll();
+        ArrayList<Membros> funcionarios = new ArrayList<Membros>();
+        for (Membros membros : f) {
+            if(membros.getIdSede() == idSede){
+                funcionarios.add(membros);
+            }
+        }        mv.addObject("funcionarios", funcionarios);
+        return mv;
+    }
+
+    @RequestMapping("excluirAtividade.html")
+    ModelAndView excluirAtividade(Integer idAtividade, Integer idSede) {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("atividades");
+        atiRep.deleteById(idAtividade);
+        List<Atividades> a = atiRep.findAll();
+        ArrayList<Atividades> atividades = new ArrayList<Atividades>();
+        for (Atividades ativ : a) {
+            if(ativ.getIdSede() == idSede){
+                atividades.add(ativ);
+            }
+        }
+        mv.addObject("atividades", atividades);
+        return mv;
+    }
+    @RequestMapping("editarFuncionario.html")
+    ModelAndView salvarEdicaoFuncionario(Membros m,Integer idSede, Integer idFunc){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("editarFuncionario");
+        Membros aux = membRep.getOne(idFunc);
+        aux.setId(idFunc)
+            .setIdSede(idSede)
+            .setNome(m.getNome())
+            .setFuncao(m.getFuncao())
+            .setEmail(m.getEmail())
+            .setDataEntrada(m.getDataEntrada())
+            .setDataSaida(m.getDataSaida());
+        membRep.save(aux);
+        mv.addObject("membro", membRep.getOne(idFunc));
+        return mv;
+    }
+    @RequestMapping("informacoesSede.html")
+    ModelAndView salvarEdicaoSede(Sede s,Integer idSede){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("editarSede");
+        Sede aux = sedRep.getOne(idSede);
+        aux.setBairro(s.getBairro())
+            .setCidade(s.getCidade())
+            .setEstado(s.getEstado())
+            .setNome(s.getNome())
+            .setTelefone(s.getTelefone())
+            .setId(idSede);
+        sedRep.save(aux);
+        mv.addObject("sede", getSede(idSede));
         return mv;
     }
 }

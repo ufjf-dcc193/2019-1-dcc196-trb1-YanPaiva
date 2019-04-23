@@ -2,11 +2,9 @@ package br.ufjf.dcc193.tbr01;
 
 import java.util.Date;
 import javax.persistence.Entity;
-import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 @Entity
 
 /**
@@ -22,20 +20,19 @@ public class Membros {
     private String email;
     private Date dataEntrada;
     private Date dataSaida;
-    @ManyToOne
-    private Sede idSede;
+    private Integer idSede;
     public Membros() {
     }
     public Integer getId() {
         return id;
     }
-    public Sede getIdSede() {
+    public Integer getIdSede() {
         return idSede;
     }
     /**
      * @param idSede the idSede to set
      */
-    public Membros setIdSede(Sede idSede) {
+    public Membros setIdSede(Integer idSede) {
         this.idSede = idSede;
         return this;
     }
