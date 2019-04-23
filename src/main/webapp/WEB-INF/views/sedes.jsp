@@ -5,9 +5,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>exem01: home</title>
-    <a href="funcionarios.html">funcionarios </a>
-    <a href="atividades.html">atividades </a>
+    <title>ONG</title>
+
     <a href="index.html">home </a>
     <a href="sedes.html">sedes </a>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,12 +16,30 @@
 <body>
     <h1>tbr01: Sedes</h1>
     <a href="novaS.html">cadastrar nova sede</a>
-0
-    <h1>lista de sedes</h1>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Lista de Sedes</th>
+                <th>Editar sede</th>
+                <th>Excluir sede</th>
+            </tr>
+        </thead>
 
     <c:forEach var="sede" items="${sedes}">
-        <p>${sede.nome}</p>
+            <tbody>
+                <tr>
+                    <td>${sede.nome}</td>
+                    <form action="editarSede.html?idSede=${sede.getId()}" method="POST">
+                        <td><Button name="btnEditar" type="submit">editar</Button></td>
+                    </form>
+                    <form action="excluirSede.html?idSede=${sede.getId()}" method="POST">
+                        <td><button name="btnExcluir" type="submit">excluir</button></td>
+                    </form>    
+                </tr>
+            </tbody>
+        
+    
     </c:forEach>
-
 </body>
 </html>

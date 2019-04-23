@@ -10,13 +10,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class HomeController {
-
-    // PessoaRepository repPessoa;
     @RequestMapping("index.html")
     ModelAndView home() {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("home");
-        // mv.addObject("pessoa",p);
         return mv;
     }
 
@@ -106,5 +103,14 @@ public class HomeController {
     @RequestMapping("novaA.html")
     String newAtividade(){
         return "novaAtividade";
+    }
+    @RequestMapping("excluirSede.html")
+    ModelAndView excluirSede(Integer idSede){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("sedes");
+        sedRep.deleteById(idSede);
+        List<Sede> sedes = sedRep.findAll();
+        mv.addObject("sedes", sedes);
+        return mv;
     }
 }
