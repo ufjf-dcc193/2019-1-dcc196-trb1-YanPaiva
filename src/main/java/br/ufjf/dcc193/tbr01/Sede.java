@@ -21,10 +21,31 @@ public class Sede {
     private String bairro;
     private Integer telefone;
     private String endWeb;
+    private Integer horasAssistencial;
+    private Integer horasJuridica;
+    private Integer horasFinanceira;
+    private Integer horasExecutiva;
 
-    public Sede(){}
+    public Sede(){
+        this.horasAssistencial = 0;
+        this.horasExecutiva=0;
+        this.horasFinanceira=0;
+        this.horasJuridica=0;
+    }
     public Integer getId() {
         return id;
+    }
+    public Integer getHorasAssistencial() {
+        return horasAssistencial;
+    }
+    public Integer getHorasExecutiva() {
+        return horasExecutiva;
+    }
+    public Integer getHorasFinanceira() {
+        return horasFinanceira;
+    }
+    public Integer getHorasJuridica() {
+        return horasJuridica;
     }
     public String getBairro() {
         return bairro;
@@ -48,7 +69,18 @@ public class Sede {
         this.id = id;
         return this;
     }
-    
+    public void setHorasAssistencial(Integer horasAssistencial) {
+        this.horasAssistencial = horasAssistencial;
+    }
+    public void setHorasExecutiva(Integer horasExecutiva) {
+        this.horasExecutiva = horasExecutiva;
+    }
+    public void setHorasFinanceira(Integer horasFinanceira) {
+        this.horasFinanceira = horasFinanceira;
+    }
+    public void setHorasJuridica(Integer horasJuridica) {
+        this.horasJuridica = horasJuridica;
+    }
     public Sede setBairro(String bairro) {
         this.bairro = bairro;
         return this;

@@ -21,6 +21,10 @@
         <thead>
             <tr>
                 <th>Lista de Sedes</th>
+                <th>Horas Assistenciais</th>
+                <th>Horas Juridicas</th>
+                <th>Horas Executiva</th>
+                <th>Horas Financeira</th>
                 <th>Editar sede</th>
                 <th>Excluir sede</th>
             </tr>
@@ -30,6 +34,10 @@
             <tbody>
                 <tr>
                     <td>${sede.nome}</td>
+                    <td>${sede.horasAssistencial}</td>
+                    <td>${sede.horasJuridica}</td>
+                    <td>${sede.horasExecutiva}</td>
+                    <td>${sede.horasFinanceira}</td>
                     <form action="editarSede.html?idSede=${sede.getId()}" method="POST">
                         <td><Button name="btnEditar" type="submit">editar</Button></td>
                     </form>

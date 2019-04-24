@@ -61,6 +61,19 @@ public class HomeController {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("sedes");
         List<Sede> sedes = sedRep.findAll();
+        for (int i=0;i<sedes.size();i++) {
+            List<Atividades> aux = atiRep.findAll();
+            ArrayList<Atividades> atividades = new ArrayList<Atividades>();
+            for (Atividades ativ : aux) {
+            if(ativ.getIdSede() == sedes.get(i).getId()){
+                sedes.get(i).setHorasAssistencial(sedes.get(i).getHorasAssistencial()+ativ.getHorasAssistencial());
+                sedes.get(i).setHorasExecutiva(sedes.get(i).getHorasExecutiva()+ativ.getHorasExecutiva());
+                sedes.get(i).setHorasFinanceira(sedes.get(i).getHorasFinanceira()+ativ.getHorasFinanceira());
+                sedes.get(i).setHorasJuridica(sedes.get(i).getHorasJuridica()+ativ.getHorasJuridica());                
+            }
+        }
+        }
+
         mv.addObject("sedes", sedes);
         return mv;
     }
