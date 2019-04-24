@@ -23,7 +23,12 @@ public class Tbr01Application {
 		sedeRep.save(s1);
 		AtividadesRepository ativRep = ctx.getBean(AtividadesRepository.class);
 		Atividades ati = new Atividades();
-		ati.setTitulo("assda").setIdSede(s1.getId());
+		ati.setTitulo("assda")
+			.setIdSede(s1.getId())
+			.setHorasAssistencial(10)
+			.setHorasExecutiva(10)
+			.setHorasFinanceira(10)
+			.setHorasJuridica(10).setIdSede(s1.getId());
 		ativRep.save(ati);
 		System.out.println(ativRep.findAll().toString());
 		System.out.println("funcionou");

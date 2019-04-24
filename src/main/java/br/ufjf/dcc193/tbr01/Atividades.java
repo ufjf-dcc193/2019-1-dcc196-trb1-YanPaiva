@@ -47,16 +47,16 @@ public class Atividades {
     public String getDescricao() {
         return descricao;
     }
-    public int getHorasAssistencial() {
+    public Integer getHorasAssistencial() {
         return horasAssistencial;
     }
-    public int getHorasExecutiva() {
+    public Integer getHorasExecutiva() {
         return horasExecutiva;
     }
-    public int getHorasFinanceira() {
+    public Integer getHorasFinanceira() {
         return horasFinanceira;
     }
-    public int getHorasJuridica() {
+    public Integer getHorasJuridica() {
         return horasJuridica;
     }
     public String getTitulo() {
@@ -78,19 +78,19 @@ public class Atividades {
         this.descricao = descricao;
         return this;
     }
-    public Atividades setHorasAssistencial(int horasAssistencial) {
+    public Atividades setHorasAssistencial(Integer horasAssistencial) {
         this.horasAssistencial = horasAssistencial;
         return this;
     }
-    public Atividades setHorasExecutiva(int horasExecutiva) {
+    public Atividades setHorasExecutiva(Integer horasExecutiva) {
         this.horasExecutiva = horasExecutiva;
         return this;
     }
-    public Atividades setHorasFinanceira(int horasFinanceira) {
+    public Atividades setHorasFinanceira(Integer horasFinanceira) {
         this.horasFinanceira = horasFinanceira;
         return this;
     }
-    public Atividades setHorasJuridica(int horasJuridica) {
+    public Atividades setHorasJuridica(Integer horasJuridica) {
         this.horasJuridica = horasJuridica;
         return this;
     }

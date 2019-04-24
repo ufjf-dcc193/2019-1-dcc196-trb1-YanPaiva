@@ -19,8 +19,8 @@
         Descrição <input name="descricao" value="${atividade.descricao}"/><br>
         Horas Assistencial<input name="horaAssistencial" type="number" value="${atividade.horasAssistencial}"/><br>
         Horas Juridica <input name="horaJuridica" type="number" value="${atividade.horasJuridica}"/><br>
-        Horas Executiva <input name="horaExecutiva" type="number" value="${atividade.horasExecutiva}"/><br>
         Horas Financeira <input name="horasFinanceira" type="number" value="${atividade.horasFinanceira}"/><br>
+        Horas Executiva <input name="horaExecutiva" type="number" value="${atividade.horasExecutiva}"/><br>
         
         <input type="submit" value="Salvar"/> <br>
     </form>

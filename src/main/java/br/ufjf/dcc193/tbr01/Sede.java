@@ -27,10 +27,6 @@ public class Sede {
     private Integer horasExecutiva;
 
     public Sede(){
-        this.horasAssistencial = 0;
-        this.horasExecutiva=0;
-        this.horasFinanceira=0;
-        this.horasJuridica=0;
     }
     public Integer getId() {
         return id;
