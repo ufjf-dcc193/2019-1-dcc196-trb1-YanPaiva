@@ -17,15 +17,16 @@ public class Atividades {
     private Integer id;
     private String titulo;
     private String descricao;
-    private Date dataInicio;
-    private Date dataFim;
-    private Double horasAssistencial;
-    private Double horasJuridica;
-    private Double horasFinanceira;
-    private Double horasExecutiva;
-    
+    private Integer horasAssistencial;
+    private Integer horasJuridica;
+    private Integer horasFinanceira;
+    private Integer horasExecutiva;
     private Integer idSede;
 
+
+  /*  private Date dataInicio;
+    private Date dataFim;
+    */
     public Atividades(){}
     public Integer getId() {
         return id;
@@ -36,26 +37,26 @@ public class Atividades {
     public Atividades setIdSede(Integer idSede) {
         this.idSede = idSede;
         return this;
-    }
+    }/*
     public Date getDataFim() {
         return dataFim;
     }
     public Date getDataInicio() {
         return dataInicio;
-    }
+    }*/
     public String getDescricao() {
         return descricao;
     }
-    public Double getHorasAssistencial() {
+    public int getHorasAssistencial() {
         return horasAssistencial;
     }
-    public Double getHorasExecutiva() {
+    public int getHorasExecutiva() {
         return horasExecutiva;
     }
-    public Double getHorasFinanceira() {
+    public int getHorasFinanceira() {
         return horasFinanceira;
     }
-    public Double getHorasJuridica() {
+    public int getHorasJuridica() {
         return horasJuridica;
     }
     public String getTitulo() {
@@ -65,31 +66,31 @@ public class Atividades {
         this.id = id;
         return this;
     }
-    public Atividades setDataFim(Date dataFim) {
+    /*public Atividades setDataFim(Date dataFim) {
         this.dataFim = dataFim;
         return this;
     }
     public Atividades setDataInicio(Date dataInicio) {
         this.dataInicio = dataInicio;
         return this;
-    }
+    }*/
     public Atividades setDescricao(String descricao) {
         this.descricao = descricao;
         return this;
     }
-    public Atividades setHorasAssistencial(Double horasAssistencial) {
+    public Atividades setHorasAssistencial(int horasAssistencial) {
         this.horasAssistencial = horasAssistencial;
         return this;
     }
-    public Atividades setHorasExecutiva(Double horasExecutiva) {
+    public Atividades setHorasExecutiva(int horasExecutiva) {
         this.horasExecutiva = horasExecutiva;
         return this;
     }
-    public Atividades setHorasFinanceira(Double horasFinanceira) {
+    public Atividades setHorasFinanceira(int horasFinanceira) {
         this.horasFinanceira = horasFinanceira;
         return this;
     }
-    public Atividades setHorasJuridica(Double horasJuridica) {
+    public Atividades setHorasJuridica(int horasJuridica) {
         this.horasJuridica = horasJuridica;
         return this;
     }

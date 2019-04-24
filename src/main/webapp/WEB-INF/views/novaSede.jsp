@@ -14,7 +14,7 @@
     <script src="main.js"></script>
 </head>
 <body>
-    <form action="novaSede.html" method="post">
+    <form action="novaSede.html?idSede=${param.idSede}" method="post">
         Nome <input name="nome"/> <br>
         Estado <input name="estado"/><br>
         Cidade <input name="cidade"/><br>

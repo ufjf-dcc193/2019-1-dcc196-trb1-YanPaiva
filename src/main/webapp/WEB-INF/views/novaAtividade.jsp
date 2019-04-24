@@ -14,15 +14,13 @@
     <script src="main.js"></script>
 </head>
 <body>
-    <form action="novaAtividade.html" method="post">
+    <form action="novaAtividade.html?idSede=${param.idSede}" method="post">
         Titulo <input name="titulo"/> <br>
         Descrição <input name="descricao"/><br>
-        Horas Assistencial <input name="horaAssistencial" type="number" value="0"/><br>
-        Horas Juridica <input name="horaJuridica" type="number" value="0"/><br>
-        Horas Executiva <input name="horaExecutiva" type="number" value="0"/><br>
-        Data de inicio <input name="dataInicio" type="date"/>
-        Data de termino <input name="dataTermino" type="date"/>
-       
+        Horas Assistencial <input name="horasAssistencial" type="number" value="0"/><br>
+        Horas Juridica <input name="horasJuridica" type="number" value="0"/><br>
+        Horas Executiva <input name="horasExecutiva" type="number" value="0"/><br>
+        Horas Financeira <input name="horasFinanceira" type="number" value="0"/><br>
         <input type="submit"/> <br>
     </form>
 </body>

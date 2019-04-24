@@ -14,15 +14,14 @@
     <script src="main.js"></script>
 </head>
 <body>
-    <form action="novaAtividade.html" method="post">
-        Titulo <input name="titulo" value="${atividade.getTitulo()}"/> <br>
-        Descrição <input name="descricao" value="${atividade.getDescricao()}"/><br>
-        Horas Assistencial <input name="horaAssistencial" type="number" value="${atividade.getHoraAssistencial()}"/><br>
-        Horas Juridica <input name="horaJuridica" type="number" value="${atividade.getHoraJuridica()}"/><br>
-        Horas Executiva <input name="horaExecutiva" type="number" value="${atividade.getHoraExecutiva()}"/><br>
-        Data de inicio <input name="dataInicio" type="date" value="${atividade.getDataInicio()}"/>
-        Data de termino <input name="dataTermino" type="date" value="${atividade.getDataTermino()}"/>
-       
+    <form action="salvarAtividade.html?idSede=${param.idSede}&idAtividade=${atividade.getId()}" method="post">
+        Titulo <input name="titulo" value="${atividade.titulo}"/> <br>
+        Descrição <input name="descricao" value="${atividade.descricao}"/><br>
+        Horas Assistencial<input name="horaAssistencial" type="number" value="${atividade.horasAssistencial}"/><br>
+        Horas Juridica <input name="horaJuridica" type="number" value="${atividade.horasJuridica}"/><br>
+        Horas Executiva <input name="horaExecutiva" type="number" value="${atividade.horasExecutiva}"/><br>
+        Horas Financeira <input name="horasFinanceira" type="number" value="${atividade.horasFinanceira}"/><br>
+        
         <input type="submit" value="Salvar"/> <br>
     </form>
 </body>

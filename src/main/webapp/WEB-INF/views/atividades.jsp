@@ -17,8 +17,8 @@
 
 <body>
     <h1>tbr01: home</h1>
-    <a href="novoA.html?idSede=${param.idSede}">cadastrar nova atividade</a>
-    <h1>lista de pessoas</h1>
+    <a href="novaA.html?idSede=${param.idSede}">cadastrar nova atividade</a>
+    <h1>lista de Atividades</h1>
     <table border="1">
         <thead>
             <tr>
@@ -31,10 +31,10 @@
             <tbody>
                 <tr>
                     <td>${atividade.titulo}</td>
-                    <form action="editarAtividade.html?idSede=${param.idSede}" method="POST">
+                    <form action="editarAtividade.html?idAtividade=${atividade.getId()}&idSede=${param.idSede}" method="POST">
                         <td><Button name="btnEditar" type="submit">editar</Button></td>
                     </form>
-                    <form action="excluirAtividade.html?idAtividade=${atividade.getId()}idSede=${param.idSede}"
+                    <form action="excluirAtividade.html?idAtividade=${atividade.getId()}&idSede=${param.idSede}"
                         method="POST">
                         <td><button name="btnExcluir" type="submit">excluir</button></td>
                     </form>

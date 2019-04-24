@@ -15,12 +15,10 @@
 </head>
 <body>
 
-<form action="novoFuncionario.html" method="post">
-        nome <input name="nome" value="${membro.getNome()}"/>
-        função <input name="funcao"value="${membro.getFuncao()}"/>
-        e-mail <input name="email"value="${membro.getEmail()}"/>
-        Data de entrada <input name="dataEntrada" type="date" value="${membro.getDataEntrada()}"/>
-        Data de saida <input name="dataSaida" type="date" value="${membro.getDataSaida()}"/>
+<form action="salvarFuncionario.html?idFunc=${membro.getId()}&idSede=${param.idSede}" method="post">
+        nome <input name="nome" value="${membro.nome}"/>
+        função <input name="funcao"value="${membro.funcao}"/>
+        e-mail <input name="email"value="${membro.email}"/>
         <input type="submit" value="Salvar"/> 
     </form>
 </body>

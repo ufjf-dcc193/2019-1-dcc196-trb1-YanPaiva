@@ -15,12 +15,10 @@
 </head>
 <body>
 
-<form action="novoFuncionario.html" method="post">
+<form action="novoFuncionario.html?idSede=${param.idSede}" method="post">
         nome <input name="nome"/>
         função <input name="funcao"/>
         e-mail <input name="email"/>
-        Data de entrada <input name="dataEntrada" type="date"/>
-        Data de saida <input name="dataSaida" type="date"/>
         <input type="submit" value="Cadastrar"/> 
     </form>
 </body>

@@ -36,10 +36,10 @@
             <tbody>
                 <tr>
                     <td>${funcionario.nome}</td>
-                    <form action="editarFuncionario.html?idSede=${param.idSede}" method="POST">
+                    <form action="editarFuncionario.html?idFunc=${funcionario.getId()}&idSede=${param.idSede}" method="POST">
                         <td><Button name="btnEditar" type="submit">editar</Button></td>
                     </form>
-                    <form action="excluirFuncionario.html?idMembro=${funcionario.getId()}idSede=${param.idSede}" method="POST">
+                    <form action="excluirFuncionario.html?idMembro=${funcionario.getId()}&idSede=${param.idSede}" method="POST">
                         <td><button name="btnExcluir" type="submit">excluir</button></td>
                     </form>
                 </tr>

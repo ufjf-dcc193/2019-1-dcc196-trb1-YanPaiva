@@ -125,7 +125,7 @@ public class HomeController {
     }
 
     @RequestMapping("novaA.html")
-    String newAtividade(){
+    String novaAtividade(){
         return "novaAtividade";
     }
     @RequestMapping("excluirSede.html")
@@ -174,7 +174,20 @@ public class HomeController {
         return mv;
     }
 
-    
+    @RequestMapping("editarFuncionario.html")
+    ModelAndView editarFuncionario(Integer idFunc){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("editarFuncionario");
+        mv.addObject("membro", membRep.getOne(idFunc));
+        return mv;
+    }
+    @RequestMapping("editarAtividade.html")
+    ModelAndView editarAtividade(Integer idAtividade){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("editarAtividade");
+        mv.addObject("atividade", atiRep.getOne(idAtividade));
+        return mv;
+    }
     @RequestMapping("excluirFuncionario.html")
     ModelAndView excluirFuncionarios(Integer idMembro, Integer idSede) {
         ModelAndView mv = new ModelAndView();
@@ -205,7 +218,7 @@ public class HomeController {
         mv.addObject("atividades", atividades);
         return mv;
     }
-    @RequestMapping("editarFuncionario.html")
+    @RequestMapping("salvarFuncionario.html")
     ModelAndView salvarEdicaoFuncionario(Membros m,Integer idSede, Integer idFunc){
         ModelAndView mv = new ModelAndView();
         mv.setViewName("editarFuncionario");
@@ -214,14 +227,14 @@ public class HomeController {
             .setIdSede(idSede)
             .setNome(m.getNome())
             .setFuncao(m.getFuncao())
-            .setEmail(m.getEmail())
-            .setDataEntrada(m.getDataEntrada())
-            .setDataSaida(m.getDataSaida());
+            .setEmail(m.getEmail());
+           // .setDataEntrada(m.getDataEntrada())
+            //.setDataSaida(m.getDataSaida());
         membRep.save(aux);
         mv.addObject("membro", membRep.getOne(idFunc));
         return mv;
     }
-    @RequestMapping("editarAtividade.html")
+    @RequestMapping("salvarAtividade.html")
     ModelAndView salvarEdicaoAtividade(Atividades a,Integer idSede, Integer idAtividade){
         ModelAndView mv = new ModelAndView();
         mv.setViewName("editarAtividade");
@@ -232,9 +245,9 @@ public class HomeController {
             .setHorasJuridica(a.getHorasJuridica())
             .setHorasAssistencial(a.getHorasAssistencial())
             .setHorasExecutiva(a.getHorasExecutiva())
-            .setHorasFinanceira(a.getHorasFinanceira())
-            .setDataFim(a.getDataFim())
-            .setDataInicio(a.getDataInicio());
+            .setHorasFinanceira(a.getHorasFinanceira());
+           // .setDataFim(a.getDataFim())
+           // .setDataInicio(a.getDataInicio());
         atiRep.save(aux);
         mv.addObject("atividade", atiRep.getOne(idAtividade));
         return mv;
