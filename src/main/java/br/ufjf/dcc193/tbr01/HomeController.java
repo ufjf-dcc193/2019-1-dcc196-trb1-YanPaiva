@@ -221,19 +221,22 @@ public class HomeController {
         mv.addObject("membro", membRep.getOne(idFunc));
         return mv;
     }
-    @RequestMapping("informacoesSede.html")
-    ModelAndView salvarEdicaoSede(Sede s,Integer idSede){
+    @RequestMapping("editarAtividade.html")
+    ModelAndView salvarEdicaoAtividade(Atividades a,Integer idSede, Integer idAtividade){
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("editarSede");
-        Sede aux = sedRep.getOne(idSede);
-        aux.setBairro(s.getBairro())
-            .setCidade(s.getCidade())
-            .setEstado(s.getEstado())
-            .setNome(s.getNome())
-            .setTelefone(s.getTelefone())
-            .setId(idSede);
-        sedRep.save(aux);
-        mv.addObject("sede", getSede(idSede));
+        mv.setViewName("editarAtividade");
+        Atividades aux = atiRep.getOne(idAtividade);
+        aux.setId(idAtividade)
+            .setIdSede(idSede)
+            .setTitulo(a.getTitulo())
+            .setHorasJuridica(a.getHorasJuridica())
+            .setHorasAssistencial(a.getHorasAssistencial())
+            .setHorasExecutiva(a.getHorasExecutiva())
+            .setHorasFinanceira(a.getHorasFinanceira())
+            .setDataFim(a.getDataFim())
+            .setDataInicio(a.getDataInicio());
+        atiRep.save(aux);
+        mv.addObject("atividade", atiRep.getOne(idAtividade));
         return mv;
     }
 }

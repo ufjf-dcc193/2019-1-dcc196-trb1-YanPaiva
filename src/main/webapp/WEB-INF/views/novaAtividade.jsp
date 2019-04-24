@@ -20,6 +20,9 @@
         Horas Assistencial <input name="horaAssistencial" type="number" value="0"/><br>
         Horas Juridica <input name="horaJuridica" type="number" value="0"/><br>
         Horas Executiva <input name="horaExecutiva" type="number" value="0"/><br>
+        Data de inicio <input name="dataInicio" type="date"/>
+        Data de termino <input name="dataTermino" type="date"/>
+       
         <input type="submit"/> <br>
     </form>
 </body>
