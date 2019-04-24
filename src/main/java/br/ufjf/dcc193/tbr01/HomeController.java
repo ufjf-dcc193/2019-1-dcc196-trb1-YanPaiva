@@ -262,7 +262,7 @@ public class HomeController {
             .setHorasFinanceira(a.getHorasFinanceira());
         // .setDataFim(a.getDataFim())
         // .setDataInicio(a.getDataInicio());
-        atiRep.save(aux);
+        atiRep.saveAndFlush(aux);
         mv.addObject("atividade", atiRep.getOne(idAtividade));
         return mv;
     }
